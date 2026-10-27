@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DUSKYN APPARELS LLP static site generator.
+DUSKYN static site generator.
 
 Generates the HTML pages, sitemap.xml and robots.txt in the project root from
 the content defined in this file, so the header, footer, SEO tags and WhatsApp
@@ -29,9 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # --------------------------------------------------------------------------
 BRAND = "DUSKYN"
 COMPANY = "DUSKYN APPARELS LLP"
-# GSTIN exactly as printed on the GST registration certificate. Left empty until the
-# certificate is supplied; the GSTIN line is only shown on the site when this is set.
-GSTIN = ""
+SINCE = "2017"
 PHONE_DISPLAY = "+91 8000190745"
 PHONE_TEL = "+918000190745"
 WA_NUMBER = "918000190745"
@@ -202,7 +200,7 @@ STEPS = [
     ("Share Your Requirement", "Tell us what product or manufacturer you need."),
     ("Discuss Your Needs", "Contact our team through WhatsApp to explain your requirements."),
     ("Explore Sourcing Options", "Discuss potential suppliers and sourcing possibilities with our team."),
-    ("Move Forward", "Discuss the next steps, commercial terms, and arrangements directly with DUSKYN APPARELS LLP."),
+    ("Move Forward", "Discuss the next steps, commercial terms, and arrangements directly with DUSKYN."),
 ]
 
 WHY = [
@@ -221,10 +219,10 @@ WHY = [
 ]
 
 ABOUT_PARAS = [
-    f"{COMPANY} provides online sourcing assistance for businesses and individuals "
+    f"{BRAND}, operated by {COMPANY}, provides online sourcing assistance for businesses and individuals "
     "seeking products and manufacturing opportunities in India and China.",
     "Whether you need help finding a suitable manufacturer in India, sourcing products from China, or identifying "
-    f"suppliers for your business requirements, {COMPANY} aims to make the sourcing process more accessible and convenient.",
+    f"suppliers for your business requirements, {BRAND} aims to make the sourcing process more accessible and convenient.",
     "Our focus is on understanding your requirements and helping you explore suitable sourcing solutions.",
 ]
 
@@ -268,7 +266,7 @@ def head(page, domain, prefix):
             f'<meta property="og:image" content="https://{domain}/assets/images/og-image.png">',
             '<meta property="og:image:width" content="1200">',
             '<meta property="og:image:height" content="630">',
-            f'<meta property="og:image:alt" content="{COMPANY} — Product sourcing solutions">',
+            f'<meta property="og:image:alt" content="{BRAND} — Global product sourcing from India and China">',
             f'<meta name="twitter:image" content="https://{domain}/assets/images/og-image.png">',
         ]
     if domain and page.get("jsonld"):
@@ -292,7 +290,7 @@ def organization_jsonld(domain):
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": COMPANY,
-        "legalName": COMPANY,
+        "alternateName": BRAND,
         "url": f"https://{domain}/",
         "logo": f"https://{domain}/assets/images/icon-512.png",
         "telephone": PHONE_TEL,
@@ -304,16 +302,7 @@ def organization_jsonld(domain):
             "postalCode": "201301",
             "addressCountry": "IN",
         },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": PHONE_TEL,
-            "contactType": "customer service",
-            "areaServed": "IN",
-            "availableLanguage": ["en"],
-        },
     }
-    if GSTIN:
-        data["taxID"] = GSTIN
     return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 
 
@@ -323,9 +312,9 @@ def page_url(domain, file):
 
 
 def brand_html(prefix):
-    return (f'<a class="brand" href="{prefix}index.html" aria-label="{COMPANY} home">'
+    return (f'<a class="brand" href="{prefix}index.html" aria-label="{BRAND} home">'
             f'<span class="brand-mark">DUSK<span>YN</span></span>'
-            f'<span class="brand-sub">Apparels LLP</span></a>')
+            f'<span class="brand-sub">Global Sourcing</span></a>')
 
 
 def header(active, prefix):
@@ -357,7 +346,6 @@ def header(active, prefix):
 
 def footer(prefix):
     year = date.today().year
-    gstin_line = f"<p>GSTIN: {GSTIN}</p>" if GSTIN else ""
     quick = "".join(f'<li><a href="{prefix}{href}">{label}</a></li>' for _, label, href in NAV)
     services = "".join(
         f'<li><a href="{prefix}services.html#{s["id"]}">{s["title"]}</a></li>' for s in SERVICES[:6])
@@ -388,11 +376,11 @@ def footer(prefix):
     </div>
     <div class="footer-bottom">
       <p>&copy; <span data-year>{year}</span> {COMPANY}. All rights reserved.</p>
-      {gstin_line}
+      <p>{BRAND} is a brand operated by {COMPANY}.</p>
     </div>
   </div>
 </footer>
-<a class="wa-float" {wa_attrs()} aria-label="Contact {COMPANY} on WhatsApp">{icon("whatsapp")}<span class="wa-float-label">WhatsApp Us</span></a>"""
+<a class="wa-float" {wa_attrs()} aria-label="Contact DUSKYN on WhatsApp">{icon("whatsapp")}<span class="wa-float-label">WhatsApp Us</span></a>"""
 
 
 def layout(page, body, domain):
@@ -425,8 +413,8 @@ def section_head(eyebrow, title, text="", center=False, h="h2", title_id=None):
 
 def about_block(full=False):
     paras = "".join(f"<p>{p}</p>" for p in ABOUT_PARAS)
-    heading = "" if full else f'<span class="eyebrow">Who We Are</span><h2 id="about-title">About {COMPANY}</h2>'
-    more = "" if full else f'<p><a class="text-link" href="about.html">Learn more about {BRAND} {icon("arrow-right")}</a></p>'
+    heading = "" if full else '<span class="eyebrow">Who We Are</span><h2 id="about-title">About DUSKYN</h2>'
+    more = "" if full else f'<p><a class="text-link" href="about.html">Learn more about DUSKYN {icon("arrow-right")}</a></p>'
     return f"""<div class="split">
       <div class="split-media reveal">
         <img src="assets/images/about-manufacturing.svg" width="640" height="520" loading="lazy" decoding="async"
@@ -436,11 +424,11 @@ def about_block(full=False):
         {heading}
         {paras}
         <div class="history-card">
-          <span class="icon-box">{icon("building")}</span>
-          <div><strong>Registered in Noida, Uttar Pradesh</strong>
-          <span>{COMPANY} is registered at {ADDRESS_ONE_LINE}</span></div>
+          <span class="icon-box">{icon("calendar")}</span>
+          <div><strong>Online sourcing services since {SINCE}</strong>
+          <span>{BRAND} has been providing online sourcing services since {SINCE}.</span></div>
         </div>
-        {f'<p class="company-line"><strong>{COMPANY}</strong> · GSTIN: {GSTIN}</p>' if GSTIN else ""}
+        <p class="company-line">{BRAND} is operated by <strong>{COMPANY}</strong>, based in Noida, Uttar Pradesh, India.</p>
         {more}
       </div>
     </div>"""
@@ -503,21 +491,18 @@ def why_section():
         </div>""" for ic, t, d in WHY)
     return f"""<section class="section section-dark" id="why-duskyn" aria-labelledby="why-title">
     <div class="container">
-      {section_head("Why Choose Us", f"Why Choose {BRAND}?", "A practical, requirement-led approach to sourcing from India and China, with direct communication throughout.", title_id="why-title")}
+      {section_head("Why Choose Us", "Why Choose DUSKYN?", "A practical, requirement-led approach to sourcing from India and China, with direct communication throughout.", title_id="why-title")}
       <div class="feature-grid">{items}</div>
     </div>
   </section>"""
 
 
 def contact_panel(heading_level="h2"):
-    gstin_item = (f'<li><span class="icon-box">{icon("tag")}</span>'
-                  f'<div><span class="detail-label">GSTIN</span><span class="detail-value">{GSTIN}</span></div></li>'
-                  if GSTIN else "")
     return f"""<div class="contact-panel reveal">
         <div class="contact-intro">
           <span class="eyebrow">Contact Us</span>
           <{heading_level} id="contact-title">Let’s Discuss Your Sourcing Requirements</{heading_level}>
-          <p class="lead">Looking for a manufacturer in India or sourcing products from China? Contact {COMPANY} and tell us what you need.</p>
+          <p class="lead">Looking for a manufacturer in India or sourcing products from China? Contact {BRAND} and tell us what you need.</p>
           <div class="btn-row">
             <a class="btn btn-primary" {wa_attrs()}>{icon("whatsapp")}Contact Us on WhatsApp</a>
             <a class="btn btn-outline" href="tel:{PHONE_TEL}">{icon("phone")}Call Now</a>
@@ -527,7 +512,9 @@ def contact_panel(heading_level="h2"):
           <ul class="detail-list">
             <li><span class="icon-box">{icon("building")}</span>
               <div><span class="detail-label">Company</span><span class="detail-value">{COMPANY}</span></div></li>
-            {gstin_item}            <li><span class="icon-box">{icon("phone")}</span>
+            <li><span class="icon-box">{icon("tag")}</span>
+              <div><span class="detail-label">Brand</span><span class="detail-value">{BRAND}</span></div></li>
+            <li><span class="icon-box">{icon("phone")}</span>
               <div><span class="detail-label">Phone / WhatsApp</span><span class="detail-value"><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></span></div></li>
             <li><span class="icon-box">{icon("map-pin")}</span>
               <div><span class="detail-label">Address</span>
@@ -567,9 +554,9 @@ def page_index():
     body = f"""  <section class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-content">
-        <p class="hero-badge"><span class="dot">{icon("globe")}</span>Product Sourcing Solutions</p>
+        <p class="hero-badge"><span class="dot">{icon("calendar")}</span>Online Sourcing Services Since {SINCE}</p>
         <h1 id="hero-title">Your Trusted Partner for <em>Global Product Sourcing</em></h1>
-        <p class="lead">From finding the right manufacturers in India to sourcing products from China, {COMPANY} helps businesses connect with suitable suppliers and sourcing solutions.</p>
+        <p class="lead">From finding the right manufacturers in India to sourcing products from China, {BRAND} helps businesses connect with suitable suppliers and sourcing solutions.</p>
         <div class="btn-row">
           <a class="btn btn-primary" {wa_attrs()}>{icon("whatsapp")}Contact Us on WhatsApp</a>
           <a class="btn btn-outline" href="#services">Explore Our Services {icon("arrow-right")}</a>
@@ -595,7 +582,7 @@ def page_index():
 
   <section class="section section-alt" id="services" aria-labelledby="services-title">
     <div class="container">
-      {section_head("Our Services", "Sourcing Services for India &amp; China", "Whether you are an individual, retailer, wholesaler or company, explore the ways " + BRAND + " can assist with your sourcing requirements.", center=True, title_id="services-title")}
+      {section_head("Our Services", "Sourcing Services for India &amp; China", "Whether you are an individual, retailer, wholesaler or company, explore the ways DUSKYN can assist with your sourcing requirements.", center=True, title_id="services-title")}
       {service_cards()}
       {services_note()}
     </div>
@@ -619,7 +606,7 @@ def page_index():
         "file": "index.html",
         "active": "home",
         "title": "DUSKYN APPARELS LLP | Product Sourcing Solutions",
-        "description": "DUSKYN APPARELS LLP, based in Noida, Uttar Pradesh, provides online sourcing assistance for products and manufacturers in India and China. Contact us on WhatsApp.",
+        "description": "DUSKYN, operated by DUSKYN APPARELS LLP, provides online sourcing services for products and manufacturers in India and China. Contact us on WhatsApp.",
         "jsonld": True,
         "body": body,
     }
@@ -630,7 +617,7 @@ def page_about():
                  ("warehouse", "Wholesalers"), ("building", "Companies")]
     aud = "".join(f'<li class="enquiry-link reveal">{icon(ic)}{t}</li>'
                   for ic, t in audiences)
-    body = f"""  {page_hero("About Us", f"About {BRAND}", f"About {COMPANY}", "Online sourcing assistance for businesses and individuals seeking products and manufacturing opportunities in India and China.")}
+    body = f"""  {page_hero("About Us", "About DUSKYN", "About DUSKYN", f"Online sourcing assistance for businesses and individuals seeking products and manufacturing opportunities in India and China, since {SINCE}.")}
 
   <section class="section" aria-label="Company overview">
     <div class="container">
@@ -660,7 +647,7 @@ def page_about():
 
   <section class="section" aria-labelledby="who-title">
     <div class="container">
-      {section_head("Who We Work With", "Sourcing Support for Different Kinds of Buyers", f"{COMPANY} provides online sourcing services to individuals, businesses, retailers, wholesalers and companies looking to source products from India and China.", title_id="who-title")}
+      {section_head("Who We Work With", "Sourcing Support for Different Kinds of Buyers", "DUSKYN provides online sourcing services to individuals, businesses, retailers, wholesalers and companies looking to source products from India and China.", title_id="who-title")}
       <ul class="audience-grid">{aud}</ul>
     </div>
   </section>
@@ -675,14 +662,14 @@ def page_about():
     return {
         "file": "about.html",
         "active": "about",
-        "title": "About Us | DUSKYN APPARELS LLP",
-        "description": "Learn about DUSKYN APPARELS LLP, based in Noida, Uttar Pradesh, providing online sourcing assistance for products and manufacturers in India and China.",
+        "title": "About DUSKYN | Online Sourcing Services Since 2017",
+        "description": "Learn about DUSKYN, operated by DUSKYN APPARELS LLP in Noida, providing online sourcing assistance for products and manufacturers in India and China since 2017.",
         "body": body,
     }
 
 
 def page_services():
-    body = f"""  {page_hero("Our Services", "Our Services", "Sourcing Services for India &amp; China", f"Explore how {COMPANY} can assist with finding manufacturers in India, sourcing products from China and identifying suppliers for your business requirements.")}
+    body = f"""  {page_hero("Our Services", "Our Services", "Sourcing Services for India &amp; China", "Explore how DUSKYN can assist with finding manufacturers in India, sourcing products from China and identifying suppliers for your business requirements.")}
 
   <section class="section" aria-label="Service list">
     <div class="container">
@@ -693,7 +680,7 @@ def page_services():
 
   <section class="section section-alt" id="how-it-works" aria-labelledby="how-title">
     <div class="container">
-      {section_head("How It Works", "From Requirement to Next Steps", f"Every enquiry starts with a conversation. Here is how working with {BRAND} typically begins.", center=True, title_id="how-title")}
+      {section_head("How It Works", "From Requirement to Next Steps", "Every enquiry starts with a conversation. Here is how working with DUSKYN typically begins.", center=True, title_id="how-title")}
       {steps_block()}
     </div>
   </section>
@@ -706,8 +693,8 @@ def page_services():
     return {
         "file": "services.html",
         "active": "services",
-        "title": "Our Services | Product Sourcing Solutions | DUSKYN APPARELS LLP",
-        "description": "China product sourcing, Indian manufacturer sourcing, wholesale sourcing, custom manufacturing assistance, supplier discovery and more from DUSKYN APPARELS LLP. Enquire on WhatsApp.",
+        "title": "Our Services | China & India Product Sourcing | DUSKYN",
+        "description": "China product sourcing, Indian manufacturer sourcing, wholesale sourcing, custom manufacturing assistance, supplier discovery and more from DUSKYN. Enquire on WhatsApp.",
         "body": body,
     }
 
@@ -724,7 +711,7 @@ def page_contact():
         "Your location and expected timeline",
     ]
     checklist = "".join(f"<li>{icon('check-circle')}<span>{c}</span></li>" for c in checklist_items)
-    body = f"""  {page_hero("Contact Us", "Contact Us", f"Contact {COMPANY}", "The quickest way to reach us is WhatsApp. You can also call us or find our address below.")}
+    body = f"""  {page_hero("Contact Us", "Contact Us", "Contact DUSKYN", "The quickest way to reach us is WhatsApp. You can also call us or find our address below.")}
 
   <section class="section" aria-labelledby="contact-title">
     <div class="container">
@@ -752,8 +739,8 @@ def page_contact():
     return {
         "file": "contact.html",
         "active": "contact",
-        "title": "Contact DUSKYN APPARELS LLP | WhatsApp +91 8000190745",
-        "description": "Contact DUSKYN APPARELS LLP on WhatsApp or call +91 8000190745. Plot N 40, Block C, Sector 88, Noida, Gautam Buddha Nagar, Uttar Pradesh 201301.",
+        "title": "Contact DUSKYN | WhatsApp +91 8000190745",
+        "description": "Contact DUSKYN (DUSKYN APPARELS LLP) on WhatsApp or call +91 8000190745. Plot N 40, Block C, Sector 88, Noida, Gautam Buddha Nagar, Uttar Pradesh 201301.",
         "body": body,
     }
 
@@ -776,7 +763,7 @@ def page_404(domain):
         "active": None,
         "prefix": prefix,
         "noindex": True,
-        "title": "Page Not Found | DUSKYN APPARELS LLP",
+        "title": "Page Not Found | DUSKYN",
         "description": "The page you are looking for could not be found.",
         "body": body,
     }

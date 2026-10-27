@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" width="640" height="520" role="img" aria-labelledby="t">
+  <title id="t">Manufacturing facility with shipping containers and packed goods</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef3fd"/>
+      <stop offset="1" stop-color="#f7f9fc"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0v32" fill="none" stroke="#0b1b33" stroke-opacity="0.05"/>
+    </pattern>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0b1b33" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="640" height="520" rx="28" fill="url(#sky)"/>
+  <rect width="640" height="520" rx="28" fill="url(#grid)"/>
+  <circle cx="500" cy="120" r="70" fill="#cfdcf8" fill-opacity="0.6"/>
+
+  <!-- Ground -->
+  <rect x="0" y="400" width="640" height="120" fill="#e3e9f3"/>
+  <path d="M0 400h640" stroke="#c9d3e3" stroke-width="2"/>
+  <path d="M40 452h560" stroke="#ffffff" stroke-width="4" stroke-dasharray="26 18" stroke-linecap="round"/>
+
+  <!-- Chimneys and smoke -->
+  <rect x="96" y="128" width="22" height="110" fill="#12284a"/>
+  <rect x="134" y="152" width="22" height="86" fill="#12284a"/>
+  <g fill="#ffffff">
+    <circle cx="110" cy="112" r="14"/><circle cx="128" cy="96" r="18"/><circle cx="154" cy="84" r="12"/>
+  </g>
+
+  <!-- Factory -->
+  <path d="M60 400V238l64-40v40l64-40v40l64-40v40l64-40v202z" fill="#0b1b33"/>
+  <path d="M124 198v40M188 198v40M252 198v40" stroke="#1d4fd1" stroke-width="3"/>
+  <g fill="#8fb0ff">
+    <rect x="80" y="262" width="34" height="22" rx="3"/><rect x="128" y="262" width="34" height="22" rx="3"/>
+    <rect x="176" y="262" width="34" height="22" rx="3"/><rect x="224" y="262" width="34" height="22" rx="3"/>
+    <rect x="272" y="262" width="34" height="22" rx="3"/>
+    <rect x="80" y="300" width="34" height="22" rx="3" fill-opacity="0.55"/><rect x="128" y="300" width="34" height="22" rx="3"/>
+    <rect x="176" y="300" width="34" height="22" rx="3" fill-opacity="0.55"/><rect x="224" y="300" width="34" height="22" rx="3"/>
+    <rect x="272" y="300" width="34" height="22" rx="3" fill-opacity="0.55"/>
+  </g>
+  <rect x="150" y="344" width="72" height="56" fill="#1d4fd1"/>
+  <path d="M150 358h72M150 372h72M150 386h72" stroke="#0b1b33" stroke-opacity="0.35" stroke-width="2"/>
+
+  <!-- Containers -->
+  <g stroke="#0b1b33" stroke-width="1.5">
+    <rect x="352" y="344" width="132" height="56" fill="#1d4fd1"/>
+    <rect x="484" y="344" width="132" height="56" fill="#12284a"/>
+    <rect x="418" y="288" width="132" height="56" fill="#8fb0ff"/>
+  </g>
+  <g stroke="#0b1b33" stroke-opacity="0.3" stroke-width="2">
+    <path d="M368 352v40M384 352v40M400 352v40M416 352v40M432 352v40M448 352v40M464 352v40"/>
+    <path d="M434 296v40M450 296v40M466 296v40M482 296v40M498 296v40M514 296v40M530 296v40"/>
+  </g>
+  <g stroke="#ffffff" stroke-opacity="0.18" stroke-width="2">
+    <path d="M500 352v40M516 352v40M532 352v40M548 352v40M564 352v40M580 352v40M596 352v40"/>
+  </g>
+
+  <!-- Boxes on pallet -->
+  <g transform="translate(250 330)">
+    <rect x="0" y="62" width="92" height="8" fill="#9aa8bf"/>
+    <rect x="4" y="22" width="42" height="40" fill="#e9eef8" stroke="#0b1b33" stroke-width="1.5"/>
+    <rect x="46" y="22" width="42" height="40" fill="#cfdcf8" stroke="#0b1b33" stroke-width="1.5"/>
+    <rect x="24" y="-16" width="42" height="38" fill="#ffffff" stroke="#0b1b33" stroke-width="1.5"/>
+    <path d="M25 22v40M67 22v40M45 -16v38" stroke="#1d4fd1" stroke-width="3"/>
+  </g>
+
+  <!-- Floating requirement card -->
+  <g filter="url(#soft)" font-family="Inter, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+    <g transform="translate(372 150)">
+      <rect width="220" height="104" rx="16" fill="#ffffff"/>
+      <text x="20" y="32" font-size="11" font-weight="700" letter-spacing="1.5" fill="#1d4fd1">YOUR REQUIREMENT</text>
+      <g stroke-linecap="round">
+        <path d="M20 54h120" stroke="#0b1b33" stroke-width="6" stroke-opacity="0.85"/>
+        <path d="M20 72h170" stroke="#c9d3e3" stroke-width="6"/>
+        <path d="M20 88h130" stroke="#c9d3e3" stroke-width="6"/>
+      </g>
+      <circle cx="190" cy="48" r="12" fill="#1d4fd1"/>
+      <path d="m184.5 48.5 4 4 7-8" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Location pin -->
+  <g transform="translate(560 60)">
+    <path d="M0 40S-22 21-22 4a22 22 0 0 1 44 0C22 21 0 40 0 40z" fill="#1d4fd1"/>
+    <circle cx="0" cy="4" r="8" fill="#ffffff"/>
+  </g>
+</svg>

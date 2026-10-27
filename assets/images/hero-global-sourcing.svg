@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" width="640" height="560" role="img" aria-labelledby="t">
+  <title id="t">Globe with a trade route connecting India and China, and a container ship</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d2140"/>
+      <stop offset="1" stop-color="#0a1830"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.62" cy="0.38" r="0.6">
+      <stop offset="0" stop-color="#2a5fe0" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2a5fe0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="globe" cx="0.38" cy="0.32" r="0.8">
+      <stop offset="0" stop-color="#1c3f7a"/>
+      <stop offset="0.7" stop-color="#11284d"/>
+      <stop offset="1" stop-color="#0c1f3d"/>
+    </radialGradient>
+    <clipPath id="globeClip"><circle cx="340" cy="230" r="170"/></clipPath>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.07"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#020a18" flood-opacity="0.45"/>
+    </filter>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f2547" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0f2547"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="560" rx="28" fill="url(#bg)"/>
+  <rect width="640" height="560" rx="28" fill="url(#dots)"/>
+  <rect width="640" height="560" rx="28" fill="url(#glow)"/>
+
+  <!-- Globe -->
+  <circle cx="340" cy="230" r="186" fill="none" stroke="#8fb0ff" stroke-opacity="0.12"/>
+  <circle cx="340" cy="230" r="170" fill="url(#globe)"/>
+  <g clip-path="url(#globeClip)" fill="none" stroke="#9db8ff" stroke-opacity="0.16" stroke-width="1">
+    <ellipse cx="340" cy="230" rx="170" ry="40"/>
+    <ellipse cx="340" cy="230" rx="170" ry="95"/>
+    <ellipse cx="340" cy="230" rx="170" ry="140"/>
+    <path d="M170 230h340"/>
+    <ellipse cx="340" cy="230" rx="45" ry="170"/>
+    <ellipse cx="340" cy="230" rx="100" ry="170"/>
+    <ellipse cx="340" cy="230" rx="145" ry="170"/>
+    <path d="M340 60v340"/>
+  </g>
+  <!-- Abstract landmasses -->
+  <g clip-path="url(#globeClip)" fill="#2c5bc4" fill-opacity="0.38">
+    <path d="M250 170c18-14 46-16 62-6 10 6 22 4 30 12 8 9 2 22 10 30 10 10 4 26-8 34-10 7-12 22-20 32-6 8-14 4-18-6-5-12-16-16-20-28-4-10-14-14-22-22-10-10-26-34-14-46z"/>
+    <path d="M360 120c22-10 56-12 84 0 20 8 40 6 52 20 10 12 4 28-10 34-16 6-26 18-42 20-16 2-26-8-40-8-18 0-30-10-38-24-8-14-20-30-6-42z"/>
+    <path d="M300 300c10-6 26-4 30 6 5 12-6 24-16 30-8 5-20 2-22-8-2-10 0-22 8-28z"/>
+    <path d="M440 250c14-4 28 4 30 16 2 14-10 22-22 22-14 0-22-8-22-18 0-10 4-17 14-20z"/>
+    <path d="M190 120c14-12 36-10 44 2 6 10-2 22-14 26-14 4-28 0-32-10-3-7-3-13 2-18z"/>
+  </g>
+  <circle cx="340" cy="230" r="170" fill="none" stroke="#9db8ff" stroke-opacity="0.25"/>
+
+  <!-- Global routes -->
+  <g fill="none" stroke="#8fb0ff" stroke-linecap="round">
+    <path d="M318 246C250 230 150 200 40 230" stroke-opacity="0.35" stroke-dasharray="2 7" stroke-width="2"/>
+    <path d="M412 178C480 140 560 120 620 140" stroke-opacity="0.35" stroke-dasharray="2 7" stroke-width="2"/>
+    <path d="M318 246C340 330 300 400 260 440" stroke-opacity="0.25" stroke-dasharray="2 7" stroke-width="2"/>
+    <!-- India to China main route -->
+    <path d="M318 246C330 180 370 160 412 178" stroke="#a9c2ff" stroke-width="2.5" stroke-dasharray="7 7"/>
+  </g>
+
+  <!-- Pins -->
+  <g>
+    <circle cx="318" cy="246" r="18" fill="#3d72ff" fill-opacity="0.2"/>
+    <circle cx="318" cy="246" r="7" fill="#ffffff"/>
+    <circle cx="318" cy="246" r="3.5" fill="#1d4fd1"/>
+    <circle cx="412" cy="178" r="18" fill="#3d72ff" fill-opacity="0.2"/>
+    <circle cx="412" cy="178" r="7" fill="#ffffff"/>
+    <circle cx="412" cy="178" r="3.5" fill="#1d4fd1"/>
+  </g>
+  <g font-family="Inter, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-weight="700" font-size="13" letter-spacing="0.5">
+    <rect x="236" y="262" width="70" height="28" rx="14" fill="#ffffff"/>
+    <text x="271" y="281" text-anchor="middle" fill="#0b1b33">INDIA</text>
+    <rect x="424" y="146" width="72" height="28" rx="14" fill="#ffffff"/>
+    <text x="460" y="165" text-anchor="middle" fill="#0b1b33">CHINA</text>
+  </g>
+
+  <!-- Sea and ship -->
+  <rect x="0" y="380" width="640" height="180" fill="url(#sea)"/>
+  <g fill="none" stroke="#8fb0ff" stroke-opacity="0.22" stroke-width="2" stroke-linecap="round">
+    <path d="M40 500c20-8 40-8 60 0s40 8 60 0 40-8 60 0 40 8 60 0 40-8 60 0 40 8 60 0 40-8 60 0 40 8 60 0 40-8 60 0"/>
+    <path d="M80 524c20-8 40-8 60 0s40 8 60 0 40-8 60 0 40 8 60 0 40-8 60 0 40 8 60 0 40-8 60 0"/>
+  </g>
+  <g transform="translate(150 380)">
+    <!-- containers -->
+    <g stroke="#0a1830" stroke-width="1.5">
+      <rect x="40"  y="40" width="56" height="28" fill="#1d4fd1"/>
+      <rect x="96"  y="40" width="56" height="28" fill="#e9eef8"/>
+      <rect x="152" y="40" width="56" height="28" fill="#3d72ff"/>
+      <rect x="208" y="40" width="56" height="28" fill="#8fb0ff"/>
+      <rect x="68"  y="12" width="56" height="28" fill="#8fb0ff"/>
+      <rect x="124" y="12" width="56" height="28" fill="#1d4fd1"/>
+      <rect x="180" y="12" width="56" height="28" fill="#e9eef8"/>
+    </g>
+    <g stroke="#0a1830" stroke-opacity="0.25" stroke-width="1.5">
+      <path d="M54 44v20M68 44v20M82 44v20M110 44v20M124 44v20M138 44v20M166 44v20M180 44v20M194 44v20M222 44v20M236 44v20M250 44v20"/>
+      <path d="M82 16v20M96 16v20M110 16v20M138 16v20M152 16v20M166 16v20M194 16v20M208 16v20M222 16v20"/>
+    </g>
+    <!-- bridge -->
+    <rect x="280" y="22" width="40" height="46" rx="3" fill="#e9eef8"/>
+    <rect x="286" y="30" width="28" height="8" rx="2" fill="#0d2140"/>
+    <rect x="294" y="6" width="10" height="16" fill="#c8d4ea"/>
+    <!-- hull -->
+    <path d="M0 68h350l-26 46H24z" fill="#ffffff"/>
+    <path d="M10 86h332" stroke="#1d4fd1" stroke-width="5"/>
+  </g>
+
+  <!-- Floating info cards -->
+  <g filter="url(#shadow)" font-family="Inter, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+    <g transform="translate(28 40)">
+      <rect width="196" height="64" rx="14" fill="#ffffff"/>
+      <rect x="12" y="12" width="40" height="40" rx="10" fill="#edf2fd"/>
+      <g transform="translate(20 20)" fill="none" stroke="#1d4fd1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 21V10.5l5 3.2v-3.2l5 3.2V5h4.5v16M1.5 21h19M16.5 21V9H20v12"/>
+      </g>
+      <text x="64" y="29" font-size="13" font-weight="700" fill="#0b1b33">Manufacturers</text>
+      <text x="64" y="47" font-size="12" font-weight="500" fill="#5a6577">Sourcing in India</text>
+    </g>
+    <g transform="translate(418 296)">
+      <rect width="196" height="64" rx="14" fill="#ffffff"/>
+      <rect x="12" y="12" width="40" height="40" rx="10" fill="#edf2fd"/>
+      <g transform="translate(20 20)" fill="none" stroke="#1d4fd1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m21 7-9-5-9 5 9 5 9-5z"/><path d="M3 7v8l9 5 9-5V7M12 12v8"/>
+      </g>
+      <text x="64" y="29" font-size="13" font-weight="700" fill="#0b1b33">Products</text>
+      <text x="64" y="47" font-size="12" font-weight="500" fill="#5a6577">Sourcing from China</text>
+    </g>
+  </g>
+</svg>

@@ -1,11 +1,11 @@
 # DUSKYN APPARELS LLP — website
 
-Static website for **DUSKYN APPARELS LLP**, to be served at **https://duskyn.co**.
+Static website for **DUSKYN**, operated by **DUSKYN APPARELS LLP**, served at **https://duskyn.co**.
 Plain HTML, CSS and vanilla JavaScript. No framework, backend, database or paid service. Built for GitHub Pages.
 
 The design, layout and page structure are reused from the BB247 website
-(`delllaptop8824-coder/bb247-website`, owned by the same account), with all branding,
-contact details and company-specific claims replaced for DUSKYN APPARELS LLP. This
+(`delllaptop8824-coder/bb247-website`, owned by the same account), with only the name,
+phone/WhatsApp number, address and domain changed. This
 project is separate from BB247: it has its own repository, its own GitHub Pages site and
 its own domain.
 
@@ -16,7 +16,6 @@ its own domain.
 | Legal name       | DUSKYN APPARELS LLP |
 | Registered address | Plot N 40, Block C, Sector 88, Noida, Gautam Buddha Nagar, Uttar Pradesh – 201301, India. |
 | Phone / WhatsApp | +91 8000190745 (`tel:+918000190745`, `https://wa.me/918000190745`) |
-| GSTIN            | **Not yet added.** Set `GSTIN` in `tools/build.py` from the GST certificate, then rebuild. |
 | Domain           | https://duskyn.co |
 
 ## Structure
